@@ -31,9 +31,9 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className='py-6 flex justify-between items-center px-4 sm:bg-yellow-50 h-[80px]'>
-      <div className='flex gap-8'>
-        <div className='flex gap-4 items-center justify-center '>
+    <nav className='py-6 flex justify-between items-center px-4 bg-blue-100 h-[80px]'>
+      <div className='flex gap-8 '>
+        <div className='flex gap-4 items-center justify-center  '>
           <div>
             MPLogo
           </div>
@@ -51,8 +51,8 @@ export default function Navbar() {
         {isMobile && (
 
           <div className="card flex justify-content-center">
-            <Sidebar visible={visible} onHide={() => setVisible(false)} style={{ backgroundColor: '#fcd34d', padding: '20px' }}>
-              <div className='mt-6 gap-4 flex flex-col items-center font-bold'>
+            <Sidebar visible={visible} onHide={() => setVisible(false)} style={{ backgroundColor: '#eff6ff', padding: '20px' }}>
+              <div className='mt-6 gap-4 flex flex-col items-center font-bold text-blue-900'>
                 <ul className='flex gap-4 flex-col'>
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/about">About</Link></li>
@@ -61,10 +61,10 @@ export default function Navbar() {
                 </ul>
                 <div className='gap-4 flex flex-col'>
                   <Link to="/signin">
-                    <button className="border-2 py-1 px-2 rounded-md border-white text-white">Sign In</button>
+                    <button className="border py-1 px-2 rounded-sm border-blue-900 text-blue-900 bg-white">Sign In</button>
                   </Link>
                   <Link to="/signup">
-                    <button className='bg-white py-1 px-2 rounded-md'>Sign Up</button>
+                    <button className='bg-white rounded-sm border border-blue-900 py-1 px-2 '>Sign Up</button>
                   </Link>
                 </div>
               </div>
@@ -88,10 +88,10 @@ export default function Navbar() {
       {/* Sign In / Sign Up buttons for larger screens */}
       <div className='gap-4 hidden md:flex'>
         <Link to="/signin">
-          <button className="border border-black py-1 px-2 rounded-md hover:scale-105 transition-all">Sign In</button>
+          <button className="border border-blue-700 py-1 px-2 rounded-sm hover:scale-105  text-blue-700 transition-all">Sign In</button>
         </Link>
         <Link to="/signup">
-          <button className='bg-yellow-500 py-1 px-2 rounded-md hover:scale-105 transition-all text-white'>Sign Up</button>
+          <button className='bg-blue-500 py-1 px-2 rounded-sm hover:scale-105 transition-all text-white'>Sign Up</button>
         </Link>
       </div>
     </nav>

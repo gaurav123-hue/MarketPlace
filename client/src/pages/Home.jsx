@@ -62,7 +62,7 @@ const SearchBar = ({ types }) => {
                     onChange={(e) => updateQuery('maxPrice', e.target.value)}
                     className="px-4 py-2 sm:w-1/3 rounded-sm outline-none border sm:border-none text-slate-700"
                 />
-                <button className="bg-yellow-500 text-white px-6 py-2 rounded-r-sm mt-4 sm:mt-0">
+                <button className="bg-blue-500 text-white px-6 py-2 rounded-r-sm mt-4 sm:mt-0">
                     Search
                 </button>
             </div>
@@ -75,9 +75,9 @@ const Home = () => {
     const types = ['buy', 'rent'];
 
     return (
-        <div className="">
+        <div className=" ">
             {/* Hero Section */}
-            <section className="min-h-screen flex flex-col justify-center items-start px-8 mt-5 sm:mt-0 md:bg-yellow-50">
+            <section className="min-h-screen flex flex-col justify-center items-start px-8 mt-5 sm:mt-0 md:bg-blue-50">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
                     {/* Text Section */}
                     <div className="lg:w-1/2 space-y-6">
@@ -107,7 +107,7 @@ const Home = () => {
                     </div>
 
                     {/* Image Section */}
-                    <div className="lg:w-1/2 mt-8 lg:mt-0 flex items-center justify-center">
+                    <div className="lg:w-1/2 mt-8 lg:mt-0 flex items-center justify-center pb-6 sm:pb-0">
                         <div className="grid grid-cols-2 gap-4">
                             <img src="/images/building1.jpg" alt="building1" className="w-36 h-52 rounded-lg" />
                             <img src="/images/pexels-pixabay-259780.jpg" alt="building2" className="w-36 h-52 rounded-lg" />
@@ -121,10 +121,7 @@ const Home = () => {
        
             </section>
 
-            {/* Statistics Section */}
-            <section className="sm:bg-yellow-50 py-12">
-               
-            </section>
+        
         </div>
     );
 };

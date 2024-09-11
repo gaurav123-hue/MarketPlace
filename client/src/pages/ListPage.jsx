@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Filter from '../components/Filter';
 import { listData } from '../dummyData';
 import Card from '../components/Card';
+import Map from '../components/Map';
 
 
 
@@ -10,9 +11,9 @@ import Card from '../components/Card';
 export default function ListPage() {
   const data = listData;
   return (
-    <section className='sm:grid grid-cols-6 grid-flow-col px-4 pt-4 h-custom-h '>
+    <section className='sm:grid grid-cols-6 grid-flow-col h-custom-h bg-blue-50'>
       {/* Cards Section */}
-      <section className='col-span-4 flex flex-col overflow-y-auto'>
+      <section className='col-span-4 flex flex-col overflow-y-auto px-4'>
         <div className="">
           <div className="">
             <Filter />
@@ -29,9 +30,7 @@ export default function ListPage() {
 
       {/* Map Section */}
       <section className='sm:col-span-2 '>
-        <div className="">
-          Map
-        </div>
+            <Map items={data}/>
       </section>
     </section>
 
