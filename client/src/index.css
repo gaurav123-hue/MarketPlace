@@ -2,16 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.popup-custom .leaflet-popup-content {
-  width: auto !important; /* Overriding default width constraints */
-}
-
-.popup-custom .leaflet-popup-content-wrapper {
-  padding: 0; /* Removes padding inside the popup */
-  border-radius: 12px; /* Rounded corners for the popup */
-}
-
-.popup-custom .leaflet-popup-tip-container {
-  visibility: hidden; /* Optionally hides the arrow tip */
-}

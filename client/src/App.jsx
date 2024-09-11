@@ -13,8 +13,7 @@ import SinglePage from './pages/SinglePage';
 export default function App() {
   return (
     <Router>
-      <div className='sticky top-0 z-50 '>
-
+      <div className='sticky top-0 z-10 '>
         <Navbar />
       </div>
       <Routes>
@@ -26,10 +25,7 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/listpage" element={<ListPage />} />
         <Route path="/:id" element={<SinglePage />} />
-
       </Routes>
-
-
     </Router>
   )
 }
