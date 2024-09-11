@@ -31,7 +31,7 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className='py-6 flex justify-between items-center px-4 sm:bg-yellow-50'>
+    <nav className='py-6 flex justify-between items-center px-4 sm:bg-yellow-50 h-[80px]'>
       <div className='flex gap-8'>
         <div className='flex gap-4 items-center justify-center '>
           <div>

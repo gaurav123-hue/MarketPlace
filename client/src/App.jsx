@@ -8,20 +8,26 @@ import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ListPage from './pages/ListPage';
+import SinglePage from './pages/SinglePage';
 
 export default function App() {
   return (
     <Router>
-      <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/agents" element={<Agents />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/listpage" element={<ListPage />} />
-        </Routes>
+      <div className='sticky top-0 z-50 '>
+
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/agents" element={<Agents />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/listpage" element={<ListPage />} />
+        <Route path="/:id" element={<SinglePage />} />
+
+      </Routes>
 
 
     </Router>
