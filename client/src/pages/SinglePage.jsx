@@ -35,13 +35,13 @@ export default function SinglePage() {
               <div className="flex items-start   mr-2">
                 <div className="bg-blue-200 p-2 rounded-md flex flex-col items-center">
                   <img src={userData.img} alt="" className="h-12 w-12 object-cover rounded-full" />
-                  <h3 className="text-normal">{userData.name}</h3>
+                  <h3 className="text-xs">{userData.name}</h3>
                 </div>
               </div>
             </div>
 
 
-            <div className="text-sm -mt-2">
+            <div className="text-sm mt-2">
               <p>
                 {singlePostData.description}
               </p>
