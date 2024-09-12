@@ -2,3 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+./* Hide scrollbar globally for the entire body */
+body {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  
+  /* Optionally, you can apply it to specific containers */
+  .hide-scrollbar-global {
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  }
+  
+  .hide-scrollbar-global::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+  }
+  

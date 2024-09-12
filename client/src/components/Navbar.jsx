@@ -50,7 +50,7 @@ export default function Navbar() {
         {/* Sidebar only for mobile screens */}
         {isMobile && (
 
-          <div className="card flex justify-content-center">
+          <div className="card flex justify-content-center bg-blue-100">
             <Sidebar visible={visible} onHide={() => setVisible(false)} style={{ backgroundColor: '#eff6ff', padding: '20px' }}>
               <div className='mt-6 gap-4 flex flex-col items-center font-bold text-blue-900'>
                 <ul className='flex gap-4 flex-col'>
