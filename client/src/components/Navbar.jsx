@@ -3,8 +3,12 @@ import { Link, useLocation } from 'react-router-dom'; // Import useLocation for 
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { userData } from '../dummyData';
 
 export default function Navbar() {
+
+  const user = true;
+  const message = true;
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation(); // Get the current location object
@@ -40,7 +44,7 @@ export default function Navbar() {
 
           <div className="md:hidden absolute right-0 mr-4 top-5">
             {/* Button to open the sidebar */}
-            
+
             <Button onClick={() => setVisible(true)}><GiHamburgerMenu /></Button>
           </div>
 
@@ -53,6 +57,21 @@ export default function Navbar() {
           <div className="card flex justify-content-center bg-blue-100">
             <Sidebar visible={visible} onHide={() => setVisible(false)} style={{ backgroundColor: '#eff6ff', padding: '20px' }}>
               <div className='mt-6 gap-4 flex flex-col items-center font-bold text-blue-900'>
+
+                {user ? (
+                  <Link to="/profile">
+                    <div className="flex items-center">
+                      <img src={userData.img} className="object-cover h-10 w-10 rounded-full relative" />
+                      {message ? (
+                        <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-4 right-4 sm:block hidden">
+                          3
+                        </div>
+                      ) : ''}
+                    </div>
+                  </Link>
+                ) : ''}
+
+
                 <ul className='flex gap-4 flex-col'>
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/about">About</Link></li>
@@ -60,12 +79,14 @@ export default function Navbar() {
                   <li><Link to="/agents">Agents</Link></li>
                 </ul>
                 <div className='gap-4 flex flex-col'>
+                {user ? '' : <>
                   <Link to="/signin">
                     <button className="border py-1 px-2 rounded-sm border-blue-900 text-blue-900 bg-white">Sign In</button>
                   </Link>
                   <Link to="/signup">
                     <button className='bg-white rounded-sm border border-blue-900 py-1 px-2 '>Sign Up</button>
                   </Link>
+                </>}
                 </div>
               </div>
             </Sidebar>
@@ -87,12 +108,30 @@ export default function Navbar() {
       </div>
       {/* Sign In / Sign Up buttons for larger screens */}
       <div className='gap-4 hidden md:flex'>
-        <Link to="/signin">
-          <button className="border border-blue-700 py-1 px-2 rounded-sm hover:scale-105  text-blue-700 transition-all">Sign In</button>
-        </Link>
-        <Link to="/signup">
-          <button className='bg-blue-500 py-1 px-2 rounded-sm hover:scale-105 transition-all text-white'>Sign Up</button>
-        </Link>
+        {user ? <div>
+          <Link to="/profile">
+            <div className=" flex items-center ">
+
+              <img src={userData.img} className="object-cover h-10 w-10 rounded-full relative" />
+              {message ?
+                <div className="bg-red-700 text-white absolute px-1 text-xs  rounded-full top-4 right-4">
+                  3
+                </div>
+                :
+                ''
+              }
+            </div>
+          </Link>
+        </div> :
+          <>
+            <Link to="/signin">
+              <button className="border border-blue-700 py-1 px-2 rounded-sm hover:scale-105  text-blue-700 transition-all">Sign In</button>
+            </Link>
+            <Link to="/signup">
+              <button className='bg-blue-500 py-1 px-2 rounded-sm hover:scale-105 transition-all text-white'>Sign Up</button>
+            </Link>
+          </>
+        }
       </div>
     </nav>
   );

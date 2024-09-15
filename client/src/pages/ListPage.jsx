@@ -30,7 +30,7 @@ export default function ListPage() {
 
       {/* Map Section */}
       <section className='sm:col-span-2 '>
-            <Map items={data}/>
+            <Map items={data} height={"calc(100vh - 80px)"}/>
       </section>
     </section>
 

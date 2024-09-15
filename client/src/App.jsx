@@ -9,6 +9,8 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ListPage from './pages/ListPage';
 import SinglePage from './pages/SinglePage';
+import Footer from './components/Footer';
+import Profile from './pages/Profile';
 
 export default function App() {
   return (
@@ -25,7 +27,11 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/listpage" element={<ListPage />} />
         <Route path="/:id" element={<SinglePage />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
+      <div>
+        <Footer/>
+      </div>
     </Router>
   )
 }
