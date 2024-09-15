@@ -63,7 +63,7 @@ export default function Navbar() {
                     <div className="flex items-center">
                       <img src={userData.img} className="object-cover h-10 w-10 rounded-full relative" />
                       {message ? (
-                        <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-4 right-4 sm:block hidden">
+                        <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-[54px] left-[170px] sm:top-8 sm:right-8 ">
                           3
                         </div>
                       ) : ''}
