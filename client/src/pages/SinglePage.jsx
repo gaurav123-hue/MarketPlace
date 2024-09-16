@@ -15,6 +15,9 @@ import { IoIosRestaurant } from "react-icons/io";
 import Map from '../components/Map';
 import { TfiCommentAlt } from "react-icons/tfi";
 import { FaRegBookmark } from "react-icons/fa";
+import { FaBookmark } from "react-icons/fa";
+
+import { useState } from 'react';
 
 
 
@@ -27,6 +30,12 @@ import { FaRegBookmark } from "react-icons/fa";
 
 
 export default function SinglePage() {
+  const [isSaved, setIsSaved] = useState(false);
+
+  // Toggle the saved state
+  const handleClick = () => {
+    setIsSaved(!isSaved); // Toggle between true and false
+  };
   return (
 
     <div className="grid grid-cols-1 sm:grid-cols-8 grid-rows-1 gap-1 bg-blue-50 order-1 px-4 pt-2 pb-4 custom-scrollbar">
@@ -247,15 +256,20 @@ export default function SinglePage() {
               <Map items={[singlePostData]} height={"200px"} />  {/* Pass height prop here */}
             </div>
 
-            <div className="flex justify-between text-md mt-4 px-1"> 
+            <div className="flex justify-between text-md mt-4 px-1">
               <button className="flex items-center gap-2 p-2 bg-blue-400 text-white  ">
-                <TfiCommentAlt/>
+                <TfiCommentAlt />
                 Send a message
               </button>
 
-              <button className="flex items-center gap-2 p-2 rounded-sm  bg-blue-400 text-white ">
-                <FaRegBookmark/>
-                Save the place
+              <button
+                onClick={handleClick}
+                className={`flex items-center gap-2 p-2 rounded-sm border 
+        ${isSaved ? 'border-blue-400 text-blue-400 bg-blue-100' : 'border-blue-400 text-blue-400 bg-white'}
+        transition duration-300 ease-in-out transform hover:scale-105`}
+              >
+                {isSaved ? <FaBookmark /> : <FaRegBookmark />}
+                {isSaved ? 'Saved' : 'Save the place'}
               </button>
             </div>
           </div>
