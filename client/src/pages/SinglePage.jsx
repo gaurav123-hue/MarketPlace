@@ -29,7 +29,7 @@ import { FaRegBookmark } from "react-icons/fa";
 export default function SinglePage() {
   return (
 
-    <div className="grid grid-cols-1 sm:grid-cols-8 grid-rows-1 gap-1 bg-blue-50 order-1 px-4 pt-2 pb-4">
+    <div className="grid grid-cols-1 sm:grid-cols-8 grid-rows-1 gap-1 bg-blue-50 order-1 px-4 pt-2 pb-4 custom-scrollbar">
       <div className="col-span-5 ">
 
         <div className="grid grid-cols-1 grid-rows-2 gap-2 ">
@@ -247,7 +247,7 @@ export default function SinglePage() {
               <Map items={[singlePostData]} height={"200px"} />  {/* Pass height prop here */}
             </div>
 
-            <div className="flex justify-between text-md mt-4"> 
+            <div className="flex justify-between text-md mt-4 px-1"> 
               <button className="flex items-center gap-2 p-2 bg-blue-400 text-white  ">
                 <TfiCommentAlt/>
                 Send a message

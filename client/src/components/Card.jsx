@@ -66,7 +66,7 @@ export default function Card({ item }) {
 
 
             </div>
-            <hr className="mt-2 sm:hidden" />
+            {/* <hr className="mt-2 sm:hidden" /> */}
         </div>
 
     )
