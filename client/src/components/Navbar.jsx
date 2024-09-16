@@ -7,8 +7,8 @@ import { userData } from '../dummyData';
 
 export default function Navbar() {
 
-  const user = true;
-  const message = true;
+  const user = false ;
+  const message = false;
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation(); // Get the current location object
