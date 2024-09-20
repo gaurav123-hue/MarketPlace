@@ -6,7 +6,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { userData } from '../dummyData';
 
 export default function Navbar() {
-
   const user = false ;
   const message = false;
   const [visible, setVisible] = useState(false);
@@ -80,12 +79,18 @@ export default function Navbar() {
                 </ul>
                 <div className='gap-4 flex flex-col'>
                 {user ? '' : <>
+                {location.pathname === '/signin' ? ''
+                :
                   <Link to="/signin">
                     <button className="border py-1 px-2 rounded-sm border-blue-900 text-blue-900 bg-white">Sign In</button>
                   </Link>
+                }
+                { location.pathname === '/signup' ? ''
+                  :
                   <Link to="/signup">
                     <button className='bg-white rounded-sm border border-blue-900 py-1 px-2 '>Sign Up</button>
                   </Link>
+                }
                 </>}
                 </div>
               </div>
@@ -98,11 +103,11 @@ export default function Navbar() {
 
         {/* Navigation menu for larger screens */}
         <div className='hidden md:block'>
-          <ul className='flex gap-4 text-slate-500'>
-            <li className='hover:scale-105 transition-all hover:text-black cursor-pointer'><Link to="/">Home</Link></li>
-            <li className='hover:scale-105 transition-all hover:text-black cursor-pointer'><Link to="/about">About</Link></li>
-            <li className='hover:scale-105 transition-all hover:text-black cursor-pointer'><Link to="/contact">Contact</Link></li>
-            <li className='hover:scale-105 transition-all hover:text-black cursor-pointer'><Link to="/agents">Agents</Link></li>
+          <ul className='flex gap-4 text-slate-500 items-center'>
+            <li className={`${location.pathname==='/' ? 'text-lg text-blue-900 hover:scale-0':''}transition-all hover:scale-105 hover:text-black cursor-pointer`}><Link to="/">Home</Link></li>
+            <li className={`${location.pathname==='/about' ? 'text-lg text-blue-900 hover:scale-0':''}transition-all hover:scale-105 hover:text-black cursor-pointer`}><Link to="/about">About</Link></li>
+            <li className={`${location.pathname==='/contact' ? 'text-lg text-blue-900 hover:scale-0':''}transition-all hover:scale-105 hover:text-black cursor-pointer`}><Link to="/contact">Contact</Link></li>
+            <li className={`${location.pathname==='/agents' ? 'text-lg text-blue-900 hover:scale-0':''}transition-all hover:scale-105 hover:text-black cursor-pointer`}><Link to="/agents">Agents</Link></li>
           </ul>
         </div>
       </div>
@@ -124,12 +129,19 @@ export default function Navbar() {
           </Link>
         </div> :
           <>
+          { location.pathname ==='/signin' ? ''
+            :
             <Link to="/signin">
               <button className="border border-blue-700 py-1 px-2 rounded-sm hover:scale-105  text-blue-700 transition-all">Sign In</button>
             </Link>
+          }
+
+          { location.pathname === '/signup' ? ''
+            :
             <Link to="/signup">
               <button className='bg-blue-500 py-1 px-2 rounded-sm hover:scale-105 transition-all text-white'>Sign Up</button>
             </Link>
+          }
           </>
         }
       </div>

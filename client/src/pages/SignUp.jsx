@@ -5,9 +5,9 @@ export default function SignUp() {
   return (
     <>
 
-      <div className="grid grid-cols-7 grid-rows-1 gap-4">
+      <div className="grid sm:grid-cols-7 grid-rows-1 gap-4">
         <div
-          className='col-span-4 mx-auto flex flex-col items-center justify-center h-custom-h'>
+         className="px-8 mt-12 col-span-4 sm:mx-auto sm:mt-0 sm:px-0 sm:flex sm:flex-col sm:items-center sm:justify-center h-custom-h">
           <div>
             <span className="text-3xl font-bold">
               Create a new account
@@ -37,7 +37,7 @@ export default function SignUp() {
           </Link>
         </div>
         <div
-          className='col-span-3 flex items-center justify-center pb-10 '>
+          className='col-span-3  items-center justify-center pb-10 hidden sm:flex '>
           <img src="/public/images/signup.jpg" alt=""
             className="h-full w-full rounded-sm object-cover  " />
 
