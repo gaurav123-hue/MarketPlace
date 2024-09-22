@@ -17,6 +17,7 @@ export default function Profile() {
             className='py-1 px-2 bg-blue-600 text-white rounded-sm text-sm'>
             Update Profile
           </button>
+          
         </div>
         {/* User Information */}
         <div>
@@ -33,11 +34,15 @@ export default function Profile() {
           <span className="flex gap-2">
             E-mail:<b>{userData.mail}</b>
           </span>
+         
         </div>
+        <hr className="mt-3 text-xl text-slate-700
+        "/>
+
 
         {/*My List*/}
         <div
-          className=" mt-4">
+          className=" mt-2">
           <div
             className="flex justify-between items-center">
             <span
