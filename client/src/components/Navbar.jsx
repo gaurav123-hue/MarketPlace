@@ -18,14 +18,8 @@ export default function Navbar() {
 
   const handleLogOut = async () => {
     try {
-      const res = await fetch(`${BASE_URL}/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-      });
-
-      localStorage.removeItem('user');
+      const res = await fetch(`${BASE_URL}/auth/login`);
+      localStorage.removeItem("User");
       navigate("/");
     } catch (error) {
       console.log(error);
