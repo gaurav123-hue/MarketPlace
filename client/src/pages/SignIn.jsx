@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import BASE_URL from '../config';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 export default function SignIn() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { updateUser } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,6 +15,8 @@ export default function SignIn() {
     const formData = new FormData(e.target);
     const username = formData.get("username"); // Make sure this matches the input name
     const password = formData.get("password");
+    
+
 
     try {
       const res = await fetch(`${BASE_URL}/auth/login`, {
@@ -25,8 +29,8 @@ export default function SignIn() {
       });
 
       const userData = await res.json();
-      localStorage.setItem("User", JSON.stringify(userData));
-      // Check for success in the response
+      updateUser(userData);      // console.log("Stored User in localStorage:", localStorage.getItem("User")); // Log the stored user data
+            // Check for success in the response
       if (res.ok) {
         // Navigate to home or dashboard on successful login
         navigate("/"); // Change this to your desired route
