@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Agents from './pages/Agents';
@@ -11,11 +11,12 @@ import ListPage from './pages/ListPage';
 import SinglePage from './pages/SinglePage';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
+import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
 
 export default function App() {
   return (
     <Router>
-      <div className='sticky top-0 z-10 '>
+      <div className='sticky top-0 z-10'>
         <Navbar />
       </div>
       <Routes>
@@ -27,11 +28,19 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/listpage" element={<ListPage />} />
         <Route path="/:id" element={<SinglePage />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* Protect the Profile route */}
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } 
+        />
       </Routes>
       <div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
-  )
+  );
 }

@@ -25,7 +25,7 @@ export default function Profile() {
       if (res.ok) {
         // Successfully logged out
         updateUser(null); // Clear user data from local storage
-         // Redirect to the home page or login page
+        // Redirect to the home page or login page
       } else {
         // Handle any errors (if the server responds with an error status)
         console.error("Logout failed:", res.statusText);
@@ -36,16 +36,11 @@ export default function Profile() {
     }
   }
 
-  useEffect(() => {
-    if (!currentUser) {
-      navigate('/signin');
-    }
-  }, [currentUser, navigate]);
 
-  
+
+
   return (
-    currentUser &&
-    (<div className="grid grid-cols-6 grid-rows-1 gap-2 pt-4">
+    <div className="grid grid-cols-6 grid-rows-1 gap-2 pt-4">
       <div
         className='col-span-3 h-custom-h overflow-auto  custom-scrollbar '>
         {/* User Information */}
@@ -123,5 +118,5 @@ export default function Profile() {
         </div>
       </div>
     </div>)
-  )
+
 }
