@@ -12,6 +12,7 @@ import SinglePage from './pages/SinglePage';
 import Footer from './components/Footer';
 import Profile from './pages/Profile';
 import ProtectedRoute from './components/ProtectedRoute'; // Import the ProtectedRoute component
+import UpdateProfile from './pages/UpdateProfile';
 
 export default function App() {
   return (
@@ -34,6 +35,14 @@ export default function App() {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          } 
+        />
+         <Route 
+          path="/updateProfile" 
+          element={
+            <ProtectedRoute>
+              <UpdateProfile />
             </ProtectedRoute>
           } 
         />

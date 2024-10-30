@@ -11,9 +11,9 @@ export default function Navbar() {
   const { currentUser, updateUser } = useContext(AuthContext); // Access context values
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const isOnProfileUpdatePage = location.pathname === '/updateProfile'
   const handleLogOut = async () => {
     try {
       await fetch(`${BASE_URL}/auth/logout`);
@@ -125,24 +125,26 @@ export default function Navbar() {
       <div className='gap-4 hidden md:flex'>
         {currentUser ? (
           <div>
-            <Link to="/profile">
-              <div className="flex items-center">
-                <img src={currentUser?.avatarUrl || '/images/userProfileImage.png'} alt="User Avatar" className="object-cover h-10 w-10 rounded-full relative" />
-                {/* Notification Badge */}
-                {currentUser.messageCount > 0 && (
-                  <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-4 right-4">
-                    {currentUser.messageCount}
-                  </div>
-                )}
-              </div>
-            </Link>
+            {!isOnProfileUpdatePage && ( // Hide profile picture on the profile update page
+              <Link to="/profile">
+                <div className="flex items-center">
+                  <img src={currentUser?.avatarUrl || '/images/userProfileImage.png'} alt="User Avatar" className="object-cover h-10 w-10 rounded-full relative" />
+                  {/* Notification Badge */}
+                  {currentUser.messageCount > 0 && (
+                    <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-4 right-4">
+                      {currentUser.messageCount}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            )}
           </div>
         ) : (
           <>
             {location.pathname === '/profile' ? (
               <MdLogout size={20}
-              onClick={handleLogOut}
-              className='hover:scale-105 cursor-pointer'/>
+                onClick={handleLogOut}
+                className='hover:scale-105 cursor-pointer' />
             ) : (
               <>
                 {location.pathname !== '/signin' && (

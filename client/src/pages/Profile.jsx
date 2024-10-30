@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
 import { userData } from '../dummyData';
 import List from '../components/List';
 import { useContext } from 'react';
@@ -40,19 +40,21 @@ export default function Profile() {
 
 
   return (
-    <div className="grid grid-cols-6 grid-rows-1 gap-2 pt-4">
+    <div className="sm:grid grid-cols-6 grid-rows-1 gap-2 pt-4 px-4 md:px-0">
       <div
-        className='col-span-3 h-custom-h overflow-auto  custom-scrollbar '>
+        className='col-span-3 sm:h-custom-h overflow-auto  custom-scrollbar '>
         {/* User Information */}
         <div
           className="flex items-center justify-between">
           <span className="text-lg ">
             User Information
           </span>
-          <button
-            className='py-1 px-2 bg-blue-600 text-white rounded-sm text-sm'>
-            Update Profile
-          </button>
+          <Link to='/updateProfile'>
+            <button
+              className='py-1 px-2 bg-blue-600 text-white rounded-sm text-sm'>
+              Update Profile
+            </button>
+          </Link>
 
         </div>
         {/* User Information */}
@@ -104,7 +106,7 @@ export default function Profile() {
 
       </div>
       <div
-        className='col-span-3  h-custom-h overflow-auto  custom-scrollbar'> {/* Saved Properties */}
+        className='col-span-3  sm:h-custom-h overflow-auto  custom-scrollbar'> {/* Saved Properties */}
         <div
           className='mt-4'>
           <span
