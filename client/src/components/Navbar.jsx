@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation,useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { userData } from '../dummyData';
 import { MdLogout } from "react-icons/md";
+import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
 import BASE_URL from '../config';
 
-
 export default function Navbar() {
-  const user = false; // Replace with actual user state
-  const message = false; // Replace with actual message state
+  const { currentUser, updateUser } = useContext(AuthContext); // Access context values
   const [visible, setVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
@@ -18,15 +16,15 @@ export default function Navbar() {
 
   const handleLogOut = async () => {
     try {
-      const res = await fetch(`${BASE_URL}/auth/login`);
+      await fetch(`${BASE_URL}/auth/logout`);
+      updateUser(null); // Clear the currentUser in context
       localStorage.removeItem("User");
       navigate("/");
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  // Detect screen size and adjust the isMobile state
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -40,7 +38,6 @@ export default function Navbar() {
     };
   }, []);
 
-  // Close sidebar when navigating to a new page
   useEffect(() => {
     setVisible(false);
   }, [location]);
@@ -63,13 +60,14 @@ export default function Navbar() {
           <div className="card flex justify-content-center bg-blue-100">
             <Sidebar visible={visible} onHide={() => setVisible(false)} style={{ backgroundColor: '#eff6ff', padding: '20px' }}>
               <div className='mt-6 gap-4 flex flex-col items-center font-bold text-blue-900'>
-                {user ? (
+                {currentUser ? (
                   <Link to="/profile">
                     <div className="flex items-center">
-                      <img src={userData.img} className="object-cover h-10 w-10 rounded-full relative" />
-                      {message && (
+                      <img src={currentUser.avatarUrl} alt="User Avatar" className="object-cover h-10 w-10 rounded-full relative" />
+                      {/* Notification Badge */}
+                      {currentUser.messageCount > 0 && (
                         <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-[54px] left-[170px] sm:top-8 sm:right-8">
-                          3
+                          {currentUser.messageCount}
                         </div>
                       )}
                     </div>
@@ -84,7 +82,7 @@ export default function Navbar() {
                 </ul>
 
                 <div className='gap-4 flex flex-col'>
-                  {!user && (
+                  {!currentUser && (
                     <>
                       {location.pathname !== '/signin' && (
                         <Link to="/signin">
@@ -125,13 +123,16 @@ export default function Navbar() {
 
       {/* Sign In / Sign Up buttons for larger screens */}
       <div className='gap-4 hidden md:flex'>
-        {user ? (
+        {currentUser ? (
           <div>
             <Link to="/profile">
               <div className="flex items-center">
-                <img src={userData.img} className="object-cover h-10 w-10 rounded-full relative" />
-                {message && (
-                  <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-4 right-4">3</div>
+                <img src={currentUser?.avatarUrl || '/images/userProfileImage.png'} alt="User Avatar" className="object-cover h-10 w-10 rounded-full relative" />
+                {/* Notification Badge */}
+                {currentUser.messageCount > 0 && (
+                  <div className="bg-red-700 text-white absolute px-1 text-xs rounded-full top-4 right-4">
+                    {currentUser.messageCount}
+                  </div>
                 )}
               </div>
             </Link>
