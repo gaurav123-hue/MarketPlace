@@ -63,7 +63,7 @@ const SearchBar = ({ types }) => {
                     onChange={(e) => updateQuery('maxPrice', e.target.value)}
                     className="px-4 py-2 sm:w-1/3 rounded-sm outline-none border sm:border-none text-slate-700"
                 />
-                <button className="bg-blue-500 text-white px-6 py-2 rounded-r-sm mt-4 sm:mt-0">
+                <button className="bg-slate-500 text-white px-6 py-2 rounded-r-sm mt-4 sm:mt-0">
                     Search
                 </button>
             </div>
@@ -82,10 +82,10 @@ const Home = () => {
     return (
         <div>
             {/* Hero Section */}
-            <section className="min-h-screen flex flex-col justify-center items-start px-8 mt-5 sm:mt-0 md:bg-blue-50">
-                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center">
+            <section className="min-h-screen flex flex-col justify-center items-center px-8 mt-5 sm:mt-0 md:bg-stone-100">
+                <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-end sm:ml-32">
                     {/* Text Section */}
-                    <div className="lg:w-1/2 space-y-6">
+                    <div className="lg:w-1/2 space-y-6  flex-col justify-end flex ">
                         <h1 className="text-4xl font-bold text-gray-900">
                             Find Real Estate & Get Your Dream Place
                         </h1>
@@ -95,7 +95,7 @@ const Home = () => {
                         {/* Buy and Rent Options */}
                         <SearchBar types={types} />
 
-                        <div className="max-w-7xl mx-auto flex justify-around">
+                        <div className="max-w-7xl mx-auto flex space-x-8 justify-evenly">
                             <div className="text-center">
                                 <p className="text-3xl font-bold text-gray-800">16+</p>
                                 <p className="text-gray-600">Years of Experience</p>
@@ -114,10 +114,10 @@ const Home = () => {
                     {/* Image Section */}
                     <div className="lg:w-1/2 mt-8 lg:mt-0 flex items-center justify-center pb-6 sm:pb-0">
                         <div className="grid grid-cols-2 gap-4">
-                            <img src="/images/building1.jpg" alt="Building 1" className="w-36 h-52 rounded-lg" />
-                            <img src="/images/pexels-pixabay-259780.jpg" alt="Building 2" className="w-36 h-52 rounded-lg" />
-                            <img src="/images/b3.jpg" alt="Building 3" className="w-36 h-52 rounded-lg" />
-                            <img src="/images/b4.jpg" alt="Building 4" className="w-36 h-52 rounded-lg" />
+                            <img src="/images/building1.jpg" alt="Building 1" className="w-36 h-52 rounded-lg element" />
+                            <img src="/images/pexels-pixabay-259780.jpg" alt="Building 2" className="w-36 h-52 rounded-lg element" />
+                            <img src="/images/b3.jpg" alt="Building 3" className="w-36 h-52 rounded-lg element" />
+                            <img src="/images/b4.jpg" alt="Building 4" className="w-36 h-52 rounded-lg element" />
                         </div>
                     </div>
                 </div>

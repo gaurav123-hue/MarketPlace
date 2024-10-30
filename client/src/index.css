@@ -2,50 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar on all major browsers */
+body {
+  overflow-y: scroll; /* Keeps scroll functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
 
+/* Hide scrollbar for Chrome, Safari, and Edge */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
-/* Hide scrollbar globally for the entire body */
 
-  /* Optionally, you can apply it to specific containers */
-  .hide-scrollbar-global {
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+
+/* Hide scrollbar on the specific container */
+.scrollbarNone {
+  overflow-y: scroll; /* Keeps scroll functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.scrollbarNone::-webkit-scrollbar {
+  display: none;
+}
+@keyframes loadFromNegative {
+  0% {
+    transform: translate3d(-100%, -100%, -100%); /* Start from -x, -y, -z */
+    opacity: 0; /* Optional: Start invisible */
   }
-  
-  .hide-scrollbar-global::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+  100% {
+    transform: translate3d(0, 0, 0); /* End at original position */
+    opacity: 1; /* Optional: Fade in */
   }
-
-
-  .hide-map {
-    display: none;
-  }
-  
-
-  /* Scrollbar for Chrome, Edge, and Safari */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  border-radius: 3px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #2d7dc9;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #2d7dc9;
-  border-radius: 10px;
-  border: 3px solid transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #2d7dc9;
-}
-
-/* Scrollbar for Firefox */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #2d7dc9 #f1f1f1;
+.element {
+  animation: loadFromNegative 1.5s ease forwards; /* Apply the animation */
 }

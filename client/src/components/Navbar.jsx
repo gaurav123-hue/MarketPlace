@@ -6,6 +6,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { MdLogout } from "react-icons/md";
 import { AuthContext } from '../context/AuthContext'; // Import the AuthContext
 import BASE_URL from '../config';
+import { FaHouseCircleCheck } from "react-icons/fa6";
+
 
 export default function Navbar() {
   const { currentUser, updateUser } = useContext(AuthContext); // Access context values
@@ -43,10 +45,20 @@ export default function Navbar() {
   }, [location]);
 
   return (
-    <nav className='py-6 flex justify-between items-center px-4 bg-blue-100 h-[80px]'>
+    <nav className='py-6  flex justify-between items-center px-8 bg-white h-[80px] shadow-xl z-10'>
       <div className='flex gap-8'>
         <div className='flex gap-4 items-center justify-center'>
-          <div>MPLogo</div>
+          <div className="flex justify-items-center items-center">
+            <span>
+            <FaHouseCircleCheck size={25}/>
+            </span>
+            <span className="text-2xl font-semibold text-black">
+              Market
+            </span>
+            <span className="text-2xl font-semibold text-slate-500">
+              Place
+            </span>
+          </div>
 
           <div className="md:hidden absolute right-0 mr-4 top-5">
             <Button onClick={() => setVisible(true)}>
@@ -57,7 +69,7 @@ export default function Navbar() {
 
         {/* Sidebar only for mobile screens */}
         {isMobile && (
-          <div className="card flex justify-content-center bg-blue-100">
+          <div className="card flex justify-content-center ">
             <Sidebar visible={visible} onHide={() => setVisible(false)} style={{ backgroundColor: '#eff6ff', padding: '20px' }}>
               <div className='mt-6 gap-4 flex flex-col items-center font-bold text-blue-900'>
                 {currentUser ? (
@@ -74,7 +86,7 @@ export default function Navbar() {
                   </Link>
                 ) : null}
 
-                <ul className='flex gap-4 flex-col'>
+                <ul className='flex gap-4 flex-col text-slate-500' >
                   <li><Link to="/">Home</Link></li>
                   <li><Link to="/about">About</Link></li>
                   <li><Link to="/contact">Contact</Link></li>
@@ -86,12 +98,12 @@ export default function Navbar() {
                     <>
                       {location.pathname !== '/signin' && (
                         <Link to="/signin">
-                          <button className="border py-1 px-2 rounded-sm border-blue-900 text-blue-900 bg-white">Sign In</button>
+                          <button className="border py-1 px-2 rounded-sm border-slate-500 text-white bg-slate-500">Sign In</button>
                         </Link>
                       )}
                       {location.pathname !== '/signup' && (
                         <Link to="/signup">
-                          <button className='bg-white rounded-sm border border-blue-900 py-1 px-2'>Sign Up</button>
+                          <button className='bg-white rounded-sm border border-slate-500 text-slate-500 py-1 px-2'>Sign Up</button>
                         </Link>
                       )}
                     </>
@@ -103,18 +115,18 @@ export default function Navbar() {
         )}
 
         {/* Navigation menu for larger screens */}
-        <div className='hidden md:block'>
+        <div className='hidden md:block mt-1'>
           <ul className='flex gap-4 text-slate-500 items-center'>
-            <li className={`${location.pathname === '/' ? 'text-lg text-blue-900 hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
+            <li className={`${location.pathname === '/' ? 'text-lg text-black hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
               <Link to="/">Home</Link>
             </li>
-            <li className={`${location.pathname === '/about' ? 'text-lg text-blue-900 hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
+            <li className={`${location.pathname === '/about' ? 'text-lg text-black hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
               <Link to="/about">About</Link>
             </li>
-            <li className={`${location.pathname === '/contact' ? 'text-lg text-blue-900 hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
+            <li className={`${location.pathname === '/contact' ? 'text-lg text-black hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
               <Link to="/contact">Contact</Link>
             </li>
-            <li className={`${location.pathname === '/agents' ? 'text-lg text-blue-900 hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
+            <li className={`${location.pathname === '/agents' ? 'text-lg text-black hover:scale-0' : ''} transition-all hover:scale-105 hover:text-black cursor-pointer`}>
               <Link to="/agents">Agents</Link>
             </li>
           </ul>
@@ -149,12 +161,12 @@ export default function Navbar() {
               <>
                 {location.pathname !== '/signin' && (
                   <Link to="/signin">
-                    <button className="border border-blue-700 py-1 px-2 rounded-sm hover:scale-105 text-blue-700 transition-all">Sign In</button>
+                    <button className="border border-slate-500 py-1 px-2 rounded-sm hover:scale-105 text-slate-700 transition-all">Sign In</button>
                   </Link>
                 )}
                 {location.pathname !== '/signup' && (
                   <Link to="/signup">
-                    <button className='bg-blue-500 py-1 px-2 rounded-sm hover:scale-105 transition-all text-white'>Sign Up</button>
+                    <button className='bg-slate-500 py-1 px-2 rounded-sm hover:scale-105 transition-all text-white'>Sign Up</button>
                   </Link>
                 )}
               </>

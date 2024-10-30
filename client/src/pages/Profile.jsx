@@ -40,9 +40,9 @@ export default function Profile() {
 
 
   return (
-    <div className="sm:grid grid-cols-6 grid-rows-1 gap-2 pt-4 px-4 md:px-0">
+    <div className="sm:grid grid-cols-10 grid-rows-1 gap-2 pt-4 md:px-24">
       <div
-        className='col-span-3 sm:h-custom-h overflow-auto  custom-scrollbar '>
+        className='col-span-5 sm:h-custom-h overflow-auto scrollbarNone '>
         {/* User Information */}
         <div
           className="flex items-center justify-between">
@@ -93,7 +93,7 @@ export default function Profile() {
               My List
             </span>
             <button
-              className='py-1 px-2 bg-blue-600 text-white rounded-sm text-sm'>
+              className='py-1 px-2 bg-slate-600 text-white rounded-sm text-sm'>
               Add New
             </button>
           </div>
@@ -106,7 +106,7 @@ export default function Profile() {
 
       </div>
       <div
-        className='col-span-3  sm:h-custom-h overflow-auto  custom-scrollbar'> {/* Saved Properties */}
+        className='col-span-5  sm:h-custom-h overflow-auto  scrollbarNone'> {/* Saved Properties */}
         <div
           className='mt-4'>
           <span
